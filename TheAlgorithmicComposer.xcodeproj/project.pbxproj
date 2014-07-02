@@ -84,42 +84,42 @@
 		A9B2BC0877E31FF816384F14 /* ControlTrigger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81E79EC762DF7B54EF0FB61F /* ControlTrigger.mm */; };
 		AA0D33693CA3BD5534E74F75 /* Arithmetic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 654BF2E698F962209D8DF0FA /* Arithmetic.mm */; };
 		AAF550E43F51985D9A3E201A /* ControlChangeNotifier.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83CB3DF48A8DFC5EF8365C46 /* ControlChangeNotifier.mm */; };
-		AB33182519641FC300A0960B /* BetaDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180119641FC200A0960B /* BetaDistribution.mm */; };
-		AB33182619641FC300A0960B /* BetaDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180219641FC300A0960B /* BetaDistribution.h */; };
-		AB33182719641FC300A0960B /* CauchyDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180319641FC300A0960B /* CauchyDistribution.mm */; };
-		AB33182819641FC300A0960B /* CauchyDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180419641FC300A0960B /* CauchyDistribution.h */; };
-		AB33182919641FC300A0960B /* Composer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180519641FC300A0960B /* Composer.mm */; };
-		AB33182A19641FC300A0960B /* Composer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180619641FC300A0960B /* Composer.h */; };
-		AB33182B19641FC300A0960B /* Distribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180719641FC300A0960B /* Distribution.mm */; };
-		AB33182C19641FC300A0960B /* Distribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180819641FC300A0960B /* Distribution.h */; };
-		AB33182D19641FC300A0960B /* ExponentialDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180919641FC300A0960B /* ExponentialDistribution.mm */; };
-		AB33182E19641FC300A0960B /* ExponentialDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180A19641FC300A0960B /* ExponentialDistribution.h */; };
-		AB33182F19641FC300A0960B /* Figure.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180B19641FC300A0960B /* Figure.mm */; };
-		AB33183019641FC300A0960B /* Figure.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180C19641FC300A0960B /* Figure.h */; };
-		AB33183119641FC300A0960B /* GaussianDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180D19641FC300A0960B /* GaussianDistribution.mm */; };
-		AB33183219641FC300A0960B /* GaussianDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33180E19641FC300A0960B /* GaussianDistribution.h */; };
-		AB33183319641FC300A0960B /* IndependentStochasticComposer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33180F19641FC300A0960B /* IndependentStochasticComposer.mm */; };
-		AB33183419641FC300A0960B /* IndependentStochasticComposer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181019641FC300A0960B /* IndependentStochasticComposer.h */; };
-		AB33183519641FC300A0960B /* LinearDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181119641FC300A0960B /* LinearDistribution.mm */; };
-		AB33183619641FC300A0960B /* LinearDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181219641FC300A0960B /* LinearDistribution.h */; };
-		AB33183719641FC300A0960B /* Note.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181319641FC300A0960B /* Note.mm */; };
-		AB33183819641FC300A0960B /* Note.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181419641FC300A0960B /* Note.h */; };
-		AB33183919641FC300A0960B /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181519641FC300A0960B /* Player.mm */; };
-		AB33183A19641FC300A0960B /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181619641FC300A0960B /* Player.h */; };
-		AB33183B19641FC300A0960B /* PoissonDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181719641FC300A0960B /* PoissonDistribution.mm */; };
-		AB33183C19641FC300A0960B /* PoissonDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181819641FC300A0960B /* PoissonDistribution.h */; };
-		AB33183D19641FC300A0960B /* Randomize.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181919641FC300A0960B /* Randomize.mm */; };
-		AB33183E19641FC300A0960B /* Randomize.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181A19641FC300A0960B /* Randomize.h */; };
-		AB33183F19641FC300A0960B /* Scales.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181B19641FC300A0960B /* Scales.h */; };
-		AB33184019641FC300A0960B /* Silence.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181C19641FC300A0960B /* Silence.mm */; };
-		AB33184119641FC300A0960B /* Silence.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181D19641FC300A0960B /* Silence.h */; };
-		AB33184219641FC300A0960B /* TriangularDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33181E19641FC300A0960B /* TriangularDistribution.mm */; };
-		AB33184319641FC300A0960B /* TriangularDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33181F19641FC300A0960B /* TriangularDistribution.h */; };
-		AB33184419641FC300A0960B /* UniformDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33182019641FC300A0960B /* UniformDistribution.mm */; };
-		AB33184519641FC300A0960B /* UniformDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33182119641FC300A0960B /* UniformDistribution.h */; };
-		AB33184619641FC300A0960B /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33182219641FC300A0960B /* Utils.mm */; };
-		AB33184719641FC300A0960B /* WeibullDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB33182319641FC300A0960B /* WeibullDistribution.mm */; };
-		AB33184819641FC300A0960B /* WeibullDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB33182419641FC300A0960B /* WeibullDistribution.h */; };
+		AB2301981964823900090844 /* BetaDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301731964823800090844 /* BetaDistribution.h */; };
+		AB2301991964823900090844 /* BetaDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301741964823800090844 /* BetaDistribution.mm */; };
+		AB23019A1964823900090844 /* CauchyDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301751964823800090844 /* CauchyDistribution.h */; };
+		AB23019B1964823900090844 /* CauchyDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301761964823800090844 /* CauchyDistribution.mm */; };
+		AB23019C1964823900090844 /* Composer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301771964823800090844 /* Composer.h */; };
+		AB23019D1964823900090844 /* Composer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301781964823800090844 /* Composer.mm */; };
+		AB23019E1964823900090844 /* Distribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301791964823800090844 /* Distribution.h */; };
+		AB23019F1964823900090844 /* Distribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017A1964823800090844 /* Distribution.mm */; };
+		AB2301A01964823900090844 /* ExponentialDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017B1964823800090844 /* ExponentialDistribution.h */; };
+		AB2301A11964823900090844 /* ExponentialDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017C1964823800090844 /* ExponentialDistribution.mm */; };
+		AB2301A21964823900090844 /* Figure.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017D1964823800090844 /* Figure.h */; };
+		AB2301A31964823900090844 /* Figure.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017E1964823800090844 /* Figure.mm */; };
+		AB2301A41964823900090844 /* GaussianDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017F1964823800090844 /* GaussianDistribution.h */; };
+		AB2301A51964823900090844 /* GaussianDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301801964823800090844 /* GaussianDistribution.mm */; };
+		AB2301A61964823900090844 /* IndependentStochasticComposer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301811964823800090844 /* IndependentStochasticComposer.h */; };
+		AB2301A71964823900090844 /* IndependentStochasticComposer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301821964823800090844 /* IndependentStochasticComposer.mm */; };
+		AB2301A81964823900090844 /* LinearDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301831964823800090844 /* LinearDistribution.h */; };
+		AB2301A91964823900090844 /* LinearDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301841964823800090844 /* LinearDistribution.mm */; };
+		AB2301AA1964823900090844 /* Note.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301861964823800090844 /* Note.h */; };
+		AB2301AB1964823900090844 /* Note.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301871964823800090844 /* Note.mm */; };
+		AB2301AC1964823900090844 /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301881964823900090844 /* Player.h */; };
+		AB2301AD1964823900090844 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301891964823900090844 /* Player.mm */; };
+		AB2301AE1964823900090844 /* PoissonDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018A1964823900090844 /* PoissonDistribution.h */; };
+		AB2301AF1964823900090844 /* PoissonDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23018B1964823900090844 /* PoissonDistribution.mm */; };
+		AB2301B01964823900090844 /* Randomize.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018C1964823900090844 /* Randomize.h */; };
+		AB2301B11964823900090844 /* Randomize.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23018D1964823900090844 /* Randomize.mm */; };
+		AB2301B21964823900090844 /* Scales.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018E1964823900090844 /* Scales.h */; };
+		AB2301B31964823900090844 /* Silence.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018F1964823900090844 /* Silence.h */; };
+		AB2301B41964823900090844 /* Silence.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301901964823900090844 /* Silence.mm */; };
+		AB2301B51964823900090844 /* TriangularDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301911964823900090844 /* TriangularDistribution.h */; };
+		AB2301B61964823900090844 /* TriangularDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301921964823900090844 /* TriangularDistribution.mm */; };
+		AB2301B71964823900090844 /* UniformDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301931964823900090844 /* UniformDistribution.h */; };
+		AB2301B81964823900090844 /* UniformDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301941964823900090844 /* UniformDistribution.mm */; };
+		AB2301B91964823900090844 /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301951964823900090844 /* Utils.mm */; };
+		AB2301BA1964823900090844 /* WeibullDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301961964823900090844 /* WeibullDistribution.h */; };
+		AB2301BB1964823900090844 /* WeibullDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301971964823900090844 /* WeibullDistribution.mm */; };
 		AB33184D196474AD00A0960B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB33184C196474AD00A0960B /* Accelerate.framework */; };
 		AB412C5D1964767100D77066 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB412C5C1964767100D77066 /* Images.xcassets */; };
 		AD80BE805A27A174778FB114 /* ofxUISpectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB3E23EF0CB8F67FDDE3080 /* ofxUISpectrum.cpp */; };
@@ -333,42 +333,43 @@
 		A62E23D49CE78E6DDA0F8013 /* ofxUIImageToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIImageToggle.h; path = ../of_v0.8.2_ios_release/addons/ofxUI/src/ofxUIImageToggle.h; sourceTree = SOURCE_ROOT; };
 		A6F86511DDE548F724E197A7 /* MonoToStereoPanner.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = MonoToStereoPanner.mm; path = ../of_v0.8.2_ios_release/addons/ofxTonic/src/Tonic/MonoToStereoPanner.mm; sourceTree = SOURCE_ROOT; };
 		A7DADC04E4E7A029BCAA0540 /* ControlMidiToFreq.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlMidiToFreq.h; path = ../of_v0.8.2_ios_release/addons/ofxTonic/src/Tonic/ControlMidiToFreq.h; sourceTree = SOURCE_ROOT; };
-		AB33180119641FC200A0960B /* BetaDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = BetaDistribution.mm; path = ../BetaDistribution.mm; sourceTree = "<group>"; };
-		AB33180219641FC300A0960B /* BetaDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BetaDistribution.h; path = ../BetaDistribution.h; sourceTree = "<group>"; };
-		AB33180319641FC300A0960B /* CauchyDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CauchyDistribution.mm; path = ../CauchyDistribution.mm; sourceTree = "<group>"; };
-		AB33180419641FC300A0960B /* CauchyDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CauchyDistribution.h; path = ../CauchyDistribution.h; sourceTree = "<group>"; };
-		AB33180519641FC300A0960B /* Composer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Composer.mm; path = ../Composer.mm; sourceTree = "<group>"; };
-		AB33180619641FC300A0960B /* Composer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Composer.h; path = ../Composer.h; sourceTree = "<group>"; };
-		AB33180719641FC300A0960B /* Distribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Distribution.mm; path = ../Distribution.mm; sourceTree = "<group>"; };
-		AB33180819641FC300A0960B /* Distribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Distribution.h; path = ../Distribution.h; sourceTree = "<group>"; };
-		AB33180919641FC300A0960B /* ExponentialDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ExponentialDistribution.mm; path = ../ExponentialDistribution.mm; sourceTree = "<group>"; };
-		AB33180A19641FC300A0960B /* ExponentialDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExponentialDistribution.h; path = ../ExponentialDistribution.h; sourceTree = "<group>"; };
-		AB33180B19641FC300A0960B /* Figure.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Figure.mm; path = ../Figure.mm; sourceTree = "<group>"; };
-		AB33180C19641FC300A0960B /* Figure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Figure.h; path = ../Figure.h; sourceTree = "<group>"; };
-		AB33180D19641FC300A0960B /* GaussianDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GaussianDistribution.mm; path = ../GaussianDistribution.mm; sourceTree = "<group>"; };
-		AB33180E19641FC300A0960B /* GaussianDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GaussianDistribution.h; path = ../GaussianDistribution.h; sourceTree = "<group>"; };
-		AB33180F19641FC300A0960B /* IndependentStochasticComposer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IndependentStochasticComposer.mm; path = ../IndependentStochasticComposer.mm; sourceTree = "<group>"; };
-		AB33181019641FC300A0960B /* IndependentStochasticComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IndependentStochasticComposer.h; path = ../IndependentStochasticComposer.h; sourceTree = "<group>"; };
-		AB33181119641FC300A0960B /* LinearDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = LinearDistribution.mm; path = ../LinearDistribution.mm; sourceTree = "<group>"; };
-		AB33181219641FC300A0960B /* LinearDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LinearDistribution.h; path = ../LinearDistribution.h; sourceTree = "<group>"; };
-		AB33181319641FC300A0960B /* Note.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Note.mm; path = ../Note.mm; sourceTree = "<group>"; };
-		AB33181419641FC300A0960B /* Note.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Note.h; path = ../Note.h; sourceTree = "<group>"; };
-		AB33181519641FC300A0960B /* Player.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Player.mm; path = ../Player.mm; sourceTree = "<group>"; };
-		AB33181619641FC300A0960B /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Player.h; sourceTree = "<group>"; };
-		AB33181719641FC300A0960B /* PoissonDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PoissonDistribution.mm; path = ../PoissonDistribution.mm; sourceTree = "<group>"; };
-		AB33181819641FC300A0960B /* PoissonDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PoissonDistribution.h; path = ../PoissonDistribution.h; sourceTree = "<group>"; };
-		AB33181919641FC300A0960B /* Randomize.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Randomize.mm; path = ../Randomize.mm; sourceTree = "<group>"; };
-		AB33181A19641FC300A0960B /* Randomize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Randomize.h; path = ../Randomize.h; sourceTree = "<group>"; };
-		AB33181B19641FC300A0960B /* Scales.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scales.h; path = ../Scales.h; sourceTree = "<group>"; };
-		AB33181C19641FC300A0960B /* Silence.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Silence.mm; path = ../Silence.mm; sourceTree = "<group>"; };
-		AB33181D19641FC300A0960B /* Silence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Silence.h; path = ../Silence.h; sourceTree = "<group>"; };
-		AB33181E19641FC300A0960B /* TriangularDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TriangularDistribution.mm; path = ../TriangularDistribution.mm; sourceTree = "<group>"; };
-		AB33181F19641FC300A0960B /* TriangularDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TriangularDistribution.h; path = ../TriangularDistribution.h; sourceTree = "<group>"; };
-		AB33182019641FC300A0960B /* UniformDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UniformDistribution.mm; path = ../UniformDistribution.mm; sourceTree = "<group>"; };
-		AB33182119641FC300A0960B /* UniformDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UniformDistribution.h; path = ../UniformDistribution.h; sourceTree = "<group>"; };
-		AB33182219641FC300A0960B /* Utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Utils.mm; path = ../Utils.mm; sourceTree = "<group>"; };
-		AB33182319641FC300A0960B /* WeibullDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = WeibullDistribution.mm; path = ../WeibullDistribution.mm; sourceTree = "<group>"; };
-		AB33182419641FC300A0960B /* WeibullDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WeibullDistribution.h; path = ../WeibullDistribution.h; sourceTree = "<group>"; };
+		AB2301731964823800090844 /* BetaDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetaDistribution.h; sourceTree = "<group>"; };
+		AB2301741964823800090844 /* BetaDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BetaDistribution.mm; sourceTree = "<group>"; };
+		AB2301751964823800090844 /* CauchyDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CauchyDistribution.h; sourceTree = "<group>"; };
+		AB2301761964823800090844 /* CauchyDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CauchyDistribution.mm; sourceTree = "<group>"; };
+		AB2301771964823800090844 /* Composer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Composer.h; sourceTree = "<group>"; };
+		AB2301781964823800090844 /* Composer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Composer.mm; sourceTree = "<group>"; };
+		AB2301791964823800090844 /* Distribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Distribution.h; sourceTree = "<group>"; };
+		AB23017A1964823800090844 /* Distribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Distribution.mm; sourceTree = "<group>"; };
+		AB23017B1964823800090844 /* ExponentialDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExponentialDistribution.h; sourceTree = "<group>"; };
+		AB23017C1964823800090844 /* ExponentialDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExponentialDistribution.mm; sourceTree = "<group>"; };
+		AB23017D1964823800090844 /* Figure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
+		AB23017E1964823800090844 /* Figure.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Figure.mm; sourceTree = "<group>"; };
+		AB23017F1964823800090844 /* GaussianDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GaussianDistribution.h; sourceTree = "<group>"; };
+		AB2301801964823800090844 /* GaussianDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GaussianDistribution.mm; sourceTree = "<group>"; };
+		AB2301811964823800090844 /* IndependentStochasticComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndependentStochasticComposer.h; sourceTree = "<group>"; };
+		AB2301821964823800090844 /* IndependentStochasticComposer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IndependentStochasticComposer.mm; sourceTree = "<group>"; };
+		AB2301831964823800090844 /* LinearDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinearDistribution.h; sourceTree = "<group>"; };
+		AB2301841964823800090844 /* LinearDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LinearDistribution.mm; sourceTree = "<group>"; };
+		AB2301851964823800090844 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		AB2301861964823800090844 /* Note.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		AB2301871964823800090844 /* Note.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Note.mm; sourceTree = "<group>"; };
+		AB2301881964823900090844 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		AB2301891964823900090844 /* Player.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Player.mm; sourceTree = "<group>"; };
+		AB23018A1964823900090844 /* PoissonDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PoissonDistribution.h; sourceTree = "<group>"; };
+		AB23018B1964823900090844 /* PoissonDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PoissonDistribution.mm; sourceTree = "<group>"; };
+		AB23018C1964823900090844 /* Randomize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Randomize.h; sourceTree = "<group>"; };
+		AB23018D1964823900090844 /* Randomize.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Randomize.mm; sourceTree = "<group>"; };
+		AB23018E1964823900090844 /* Scales.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scales.h; sourceTree = "<group>"; };
+		AB23018F1964823900090844 /* Silence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Silence.h; sourceTree = "<group>"; };
+		AB2301901964823900090844 /* Silence.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Silence.mm; sourceTree = "<group>"; };
+		AB2301911964823900090844 /* TriangularDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangularDistribution.h; sourceTree = "<group>"; };
+		AB2301921964823900090844 /* TriangularDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TriangularDistribution.mm; sourceTree = "<group>"; };
+		AB2301931964823900090844 /* UniformDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformDistribution.h; sourceTree = "<group>"; };
+		AB2301941964823900090844 /* UniformDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniformDistribution.mm; sourceTree = "<group>"; };
+		AB2301951964823900090844 /* Utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Utils.mm; sourceTree = "<group>"; };
+		AB2301961964823900090844 /* WeibullDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeibullDistribution.h; sourceTree = "<group>"; };
+		AB2301971964823900090844 /* WeibullDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WeibullDistribution.mm; sourceTree = "<group>"; };
 		AB33184C196474AD00A0960B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AB412C5C1964767100D77066 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TheAlgorithmicComposer/Images.xcassets; sourceTree = "<group>"; };
 		ACC09B090896E187FAF09114 /* ofxUIToggleMatrix.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUIToggleMatrix.cpp; path = ../of_v0.8.2_ios_release/addons/ofxUI/src/ofxUIToggleMatrix.cpp; sourceTree = SOURCE_ROOT; };
@@ -847,42 +848,43 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AB33180119641FC200A0960B /* BetaDistribution.mm */,
-				AB33180219641FC300A0960B /* BetaDistribution.h */,
-				AB33180319641FC300A0960B /* CauchyDistribution.mm */,
-				AB33180419641FC300A0960B /* CauchyDistribution.h */,
-				AB33180519641FC300A0960B /* Composer.mm */,
-				AB33180619641FC300A0960B /* Composer.h */,
-				AB33180719641FC300A0960B /* Distribution.mm */,
-				AB33180819641FC300A0960B /* Distribution.h */,
-				AB33180919641FC300A0960B /* ExponentialDistribution.mm */,
-				AB33180A19641FC300A0960B /* ExponentialDistribution.h */,
-				AB33180B19641FC300A0960B /* Figure.mm */,
-				AB33180C19641FC300A0960B /* Figure.h */,
-				AB33180D19641FC300A0960B /* GaussianDistribution.mm */,
-				AB33180E19641FC300A0960B /* GaussianDistribution.h */,
-				AB33180F19641FC300A0960B /* IndependentStochasticComposer.mm */,
-				AB33181019641FC300A0960B /* IndependentStochasticComposer.h */,
-				AB33181119641FC300A0960B /* LinearDistribution.mm */,
-				AB33181219641FC300A0960B /* LinearDistribution.h */,
-				AB33181319641FC300A0960B /* Note.mm */,
-				AB33181419641FC300A0960B /* Note.h */,
-				AB33181519641FC300A0960B /* Player.mm */,
-				AB33181619641FC300A0960B /* Player.h */,
-				AB33181719641FC300A0960B /* PoissonDistribution.mm */,
-				AB33181819641FC300A0960B /* PoissonDistribution.h */,
-				AB33181919641FC300A0960B /* Randomize.mm */,
-				AB33181A19641FC300A0960B /* Randomize.h */,
-				AB33181B19641FC300A0960B /* Scales.h */,
-				AB33181C19641FC300A0960B /* Silence.mm */,
-				AB33181D19641FC300A0960B /* Silence.h */,
-				AB33181E19641FC300A0960B /* TriangularDistribution.mm */,
-				AB33181F19641FC300A0960B /* TriangularDistribution.h */,
-				AB33182019641FC300A0960B /* UniformDistribution.mm */,
-				AB33182119641FC300A0960B /* UniformDistribution.h */,
-				AB33182219641FC300A0960B /* Utils.mm */,
-				AB33182319641FC300A0960B /* WeibullDistribution.mm */,
-				AB33182419641FC300A0960B /* WeibullDistribution.h */,
+				AB2301731964823800090844 /* BetaDistribution.h */,
+				AB2301741964823800090844 /* BetaDistribution.mm */,
+				AB2301751964823800090844 /* CauchyDistribution.h */,
+				AB2301761964823800090844 /* CauchyDistribution.mm */,
+				AB2301771964823800090844 /* Composer.h */,
+				AB2301781964823800090844 /* Composer.mm */,
+				AB2301791964823800090844 /* Distribution.h */,
+				AB23017A1964823800090844 /* Distribution.mm */,
+				AB23017B1964823800090844 /* ExponentialDistribution.h */,
+				AB23017C1964823800090844 /* ExponentialDistribution.mm */,
+				AB23017D1964823800090844 /* Figure.h */,
+				AB23017E1964823800090844 /* Figure.mm */,
+				AB23017F1964823800090844 /* GaussianDistribution.h */,
+				AB2301801964823800090844 /* GaussianDistribution.mm */,
+				AB2301811964823800090844 /* IndependentStochasticComposer.h */,
+				AB2301821964823800090844 /* IndependentStochasticComposer.mm */,
+				AB2301831964823800090844 /* LinearDistribution.h */,
+				AB2301841964823800090844 /* LinearDistribution.mm */,
+				AB2301851964823800090844 /* main.mm */,
+				AB2301861964823800090844 /* Note.h */,
+				AB2301871964823800090844 /* Note.mm */,
+				AB2301881964823900090844 /* Player.h */,
+				AB2301891964823900090844 /* Player.mm */,
+				AB23018A1964823900090844 /* PoissonDistribution.h */,
+				AB23018B1964823900090844 /* PoissonDistribution.mm */,
+				AB23018C1964823900090844 /* Randomize.h */,
+				AB23018D1964823900090844 /* Randomize.mm */,
+				AB23018E1964823900090844 /* Scales.h */,
+				AB23018F1964823900090844 /* Silence.h */,
+				AB2301901964823900090844 /* Silence.mm */,
+				AB2301911964823900090844 /* TriangularDistribution.h */,
+				AB2301921964823900090844 /* TriangularDistribution.mm */,
+				AB2301931964823900090844 /* UniformDistribution.h */,
+				AB2301941964823900090844 /* UniformDistribution.mm */,
+				AB2301951964823900090844 /* Utils.mm */,
+				AB2301961964823900090844 /* WeibullDistribution.h */,
+				AB2301971964823900090844 /* WeibullDistribution.mm */,
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				E4D8936D11527B74007E1F53 /* App.mm */,
 				E4D8936C11527B74007E1F53 /* App.h */,
@@ -992,43 +994,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB33182519641FC300A0960B /* BetaDistribution.mm in Sources */,
-				AB33182619641FC300A0960B /* BetaDistribution.h in Sources */,
-				AB33182719641FC300A0960B /* CauchyDistribution.mm in Sources */,
-				AB33182819641FC300A0960B /* CauchyDistribution.h in Sources */,
-				AB33182919641FC300A0960B /* Composer.mm in Sources */,
-				AB33182A19641FC300A0960B /* Composer.h in Sources */,
-				AB33182B19641FC300A0960B /* Distribution.mm in Sources */,
-				AB33182C19641FC300A0960B /* Distribution.h in Sources */,
-				AB33182D19641FC300A0960B /* ExponentialDistribution.mm in Sources */,
-				AB33182E19641FC300A0960B /* ExponentialDistribution.h in Sources */,
-				AB33182F19641FC300A0960B /* Figure.mm in Sources */,
-				AB33183019641FC300A0960B /* Figure.h in Sources */,
-				AB33183119641FC300A0960B /* GaussianDistribution.mm in Sources */,
-				AB33183219641FC300A0960B /* GaussianDistribution.h in Sources */,
-				AB33183319641FC300A0960B /* IndependentStochasticComposer.mm in Sources */,
-				AB33183419641FC300A0960B /* IndependentStochasticComposer.h in Sources */,
-				AB33183519641FC300A0960B /* LinearDistribution.mm in Sources */,
-				AB33183619641FC300A0960B /* LinearDistribution.h in Sources */,
-				AB33183719641FC300A0960B /* Note.mm in Sources */,
-				AB33183819641FC300A0960B /* Note.h in Sources */,
-				AB33183919641FC300A0960B /* Player.mm in Sources */,
-				AB33183A19641FC300A0960B /* Player.h in Sources */,
-				AB33183B19641FC300A0960B /* PoissonDistribution.mm in Sources */,
-				AB33183C19641FC300A0960B /* PoissonDistribution.h in Sources */,
-				AB33183D19641FC300A0960B /* Randomize.mm in Sources */,
-				AB33183E19641FC300A0960B /* Randomize.h in Sources */,
-				AB33183F19641FC300A0960B /* Scales.h in Sources */,
-				AB33184019641FC300A0960B /* Silence.mm in Sources */,
-				AB33184119641FC300A0960B /* Silence.h in Sources */,
-				AB33184219641FC300A0960B /* TriangularDistribution.mm in Sources */,
-				AB33184319641FC300A0960B /* TriangularDistribution.h in Sources */,
-				AB33184419641FC300A0960B /* UniformDistribution.mm in Sources */,
-				AB33184519641FC300A0960B /* UniformDistribution.h in Sources */,
-				AB33184619641FC300A0960B /* Utils.mm in Sources */,
-				AB33184719641FC300A0960B /* WeibullDistribution.mm in Sources */,
-				AB33184819641FC300A0960B /* WeibullDistribution.h in Sources */,
+				AB2301981964823900090844 /* BetaDistribution.h in Sources */,
+				AB2301991964823900090844 /* BetaDistribution.mm in Sources */,
+				AB23019A1964823900090844 /* CauchyDistribution.h in Sources */,
+				AB23019B1964823900090844 /* CauchyDistribution.mm in Sources */,
+				AB23019C1964823900090844 /* Composer.h in Sources */,
+				AB23019D1964823900090844 /* Composer.mm in Sources */,
+				AB23019E1964823900090844 /* Distribution.h in Sources */,
+				AB23019F1964823900090844 /* Distribution.mm in Sources */,
+				AB2301A01964823900090844 /* ExponentialDistribution.h in Sources */,
+				AB2301A11964823900090844 /* ExponentialDistribution.mm in Sources */,
+				AB2301A21964823900090844 /* Figure.h in Sources */,
+				AB2301A31964823900090844 /* Figure.mm in Sources */,
+				AB2301A41964823900090844 /* GaussianDistribution.h in Sources */,
+				AB2301A51964823900090844 /* GaussianDistribution.mm in Sources */,
+				AB2301A61964823900090844 /* IndependentStochasticComposer.h in Sources */,
+				AB2301A71964823900090844 /* IndependentStochasticComposer.mm in Sources */,
+				AB2301A81964823900090844 /* LinearDistribution.h in Sources */,
+				AB2301A91964823900090844 /* LinearDistribution.mm in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
+				AB2301AA1964823900090844 /* Note.h in Sources */,
+				AB2301AB1964823900090844 /* Note.mm in Sources */,
+				AB2301AC1964823900090844 /* Player.h in Sources */,
+				AB2301AD1964823900090844 /* Player.mm in Sources */,
+				AB2301AE1964823900090844 /* PoissonDistribution.h in Sources */,
+				AB2301AF1964823900090844 /* PoissonDistribution.mm in Sources */,
+				AB2301B01964823900090844 /* Randomize.h in Sources */,
+				AB2301B11964823900090844 /* Randomize.mm in Sources */,
+				AB2301B21964823900090844 /* Scales.h in Sources */,
+				AB2301B31964823900090844 /* Silence.h in Sources */,
+				AB2301B41964823900090844 /* Silence.mm in Sources */,
+				AB2301B51964823900090844 /* TriangularDistribution.h in Sources */,
+				AB2301B61964823900090844 /* TriangularDistribution.mm in Sources */,
+				AB2301B71964823900090844 /* UniformDistribution.h in Sources */,
+				AB2301B81964823900090844 /* UniformDistribution.mm in Sources */,
+				AB2301B91964823900090844 /* Utils.mm in Sources */,
+				AB2301BA1964823900090844 /* WeibullDistribution.h in Sources */,
+				AB2301BB1964823900090844 /* WeibullDistribution.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* App.mm in Sources */,
 				4A8CCC85B9C3AB1B4E1FEA27 /* ofxXmlSettings.cpp in Sources */,
 				0D5825B81BEB8FD51F4192D8 /* tinyxml.cpp in Sources */,
