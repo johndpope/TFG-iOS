@@ -84,41 +84,23 @@
 		A9B2BC0877E31FF816384F14 /* ControlTrigger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81E79EC762DF7B54EF0FB61F /* ControlTrigger.mm */; };
 		AA0D33693CA3BD5534E74F75 /* Arithmetic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 654BF2E698F962209D8DF0FA /* Arithmetic.mm */; };
 		AAF550E43F51985D9A3E201A /* ControlChangeNotifier.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83CB3DF48A8DFC5EF8365C46 /* ControlChangeNotifier.mm */; };
-		AB2301981964823900090844 /* BetaDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301731964823800090844 /* BetaDistribution.h */; };
 		AB2301991964823900090844 /* BetaDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301741964823800090844 /* BetaDistribution.mm */; };
-		AB23019A1964823900090844 /* CauchyDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301751964823800090844 /* CauchyDistribution.h */; };
 		AB23019B1964823900090844 /* CauchyDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301761964823800090844 /* CauchyDistribution.mm */; };
-		AB23019C1964823900090844 /* Composer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301771964823800090844 /* Composer.h */; };
 		AB23019D1964823900090844 /* Composer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301781964823800090844 /* Composer.mm */; };
-		AB23019E1964823900090844 /* Distribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301791964823800090844 /* Distribution.h */; };
 		AB23019F1964823900090844 /* Distribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017A1964823800090844 /* Distribution.mm */; };
-		AB2301A01964823900090844 /* ExponentialDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017B1964823800090844 /* ExponentialDistribution.h */; };
 		AB2301A11964823900090844 /* ExponentialDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017C1964823800090844 /* ExponentialDistribution.mm */; };
-		AB2301A21964823900090844 /* Figure.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017D1964823800090844 /* Figure.h */; };
 		AB2301A31964823900090844 /* Figure.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23017E1964823800090844 /* Figure.mm */; };
-		AB2301A41964823900090844 /* GaussianDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23017F1964823800090844 /* GaussianDistribution.h */; };
 		AB2301A51964823900090844 /* GaussianDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301801964823800090844 /* GaussianDistribution.mm */; };
-		AB2301A61964823900090844 /* IndependentStochasticComposer.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301811964823800090844 /* IndependentStochasticComposer.h */; };
 		AB2301A71964823900090844 /* IndependentStochasticComposer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301821964823800090844 /* IndependentStochasticComposer.mm */; };
-		AB2301A81964823900090844 /* LinearDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301831964823800090844 /* LinearDistribution.h */; };
 		AB2301A91964823900090844 /* LinearDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301841964823800090844 /* LinearDistribution.mm */; };
-		AB2301AA1964823900090844 /* Note.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301861964823800090844 /* Note.h */; };
 		AB2301AB1964823900090844 /* Note.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301871964823800090844 /* Note.mm */; };
-		AB2301AC1964823900090844 /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301881964823900090844 /* Player.h */; };
 		AB2301AD1964823900090844 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301891964823900090844 /* Player.mm */; };
-		AB2301AE1964823900090844 /* PoissonDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018A1964823900090844 /* PoissonDistribution.h */; };
 		AB2301AF1964823900090844 /* PoissonDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23018B1964823900090844 /* PoissonDistribution.mm */; };
-		AB2301B01964823900090844 /* Randomize.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018C1964823900090844 /* Randomize.h */; };
 		AB2301B11964823900090844 /* Randomize.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB23018D1964823900090844 /* Randomize.mm */; };
-		AB2301B21964823900090844 /* Scales.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018E1964823900090844 /* Scales.h */; };
-		AB2301B31964823900090844 /* Silence.h in Sources */ = {isa = PBXBuildFile; fileRef = AB23018F1964823900090844 /* Silence.h */; };
 		AB2301B41964823900090844 /* Silence.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301901964823900090844 /* Silence.mm */; };
-		AB2301B51964823900090844 /* TriangularDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301911964823900090844 /* TriangularDistribution.h */; };
 		AB2301B61964823900090844 /* TriangularDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301921964823900090844 /* TriangularDistribution.mm */; };
-		AB2301B71964823900090844 /* UniformDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301931964823900090844 /* UniformDistribution.h */; };
 		AB2301B81964823900090844 /* UniformDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301941964823900090844 /* UniformDistribution.mm */; };
 		AB2301B91964823900090844 /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301951964823900090844 /* Utils.mm */; };
-		AB2301BA1964823900090844 /* WeibullDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = AB2301961964823900090844 /* WeibullDistribution.h */; };
 		AB2301BB1964823900090844 /* WeibullDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301971964823900090844 /* WeibullDistribution.mm */; };
 		AB33184D196474AD00A0960B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB33184C196474AD00A0960B /* Accelerate.framework */; };
 		AB412C5D1964767100D77066 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB412C5C1964767100D77066 /* Images.xcassets */; };
@@ -994,42 +976,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB2301981964823900090844 /* BetaDistribution.h in Sources */,
 				AB2301991964823900090844 /* BetaDistribution.mm in Sources */,
-				AB23019A1964823900090844 /* CauchyDistribution.h in Sources */,
 				AB23019B1964823900090844 /* CauchyDistribution.mm in Sources */,
-				AB23019C1964823900090844 /* Composer.h in Sources */,
 				AB23019D1964823900090844 /* Composer.mm in Sources */,
-				AB23019E1964823900090844 /* Distribution.h in Sources */,
 				AB23019F1964823900090844 /* Distribution.mm in Sources */,
-				AB2301A01964823900090844 /* ExponentialDistribution.h in Sources */,
 				AB2301A11964823900090844 /* ExponentialDistribution.mm in Sources */,
-				AB2301A21964823900090844 /* Figure.h in Sources */,
 				AB2301A31964823900090844 /* Figure.mm in Sources */,
-				AB2301A41964823900090844 /* GaussianDistribution.h in Sources */,
 				AB2301A51964823900090844 /* GaussianDistribution.mm in Sources */,
-				AB2301A61964823900090844 /* IndependentStochasticComposer.h in Sources */,
 				AB2301A71964823900090844 /* IndependentStochasticComposer.mm in Sources */,
-				AB2301A81964823900090844 /* LinearDistribution.h in Sources */,
 				AB2301A91964823900090844 /* LinearDistribution.mm in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
-				AB2301AA1964823900090844 /* Note.h in Sources */,
 				AB2301AB1964823900090844 /* Note.mm in Sources */,
-				AB2301AC1964823900090844 /* Player.h in Sources */,
 				AB2301AD1964823900090844 /* Player.mm in Sources */,
-				AB2301AE1964823900090844 /* PoissonDistribution.h in Sources */,
 				AB2301AF1964823900090844 /* PoissonDistribution.mm in Sources */,
-				AB2301B01964823900090844 /* Randomize.h in Sources */,
 				AB2301B11964823900090844 /* Randomize.mm in Sources */,
-				AB2301B21964823900090844 /* Scales.h in Sources */,
-				AB2301B31964823900090844 /* Silence.h in Sources */,
 				AB2301B41964823900090844 /* Silence.mm in Sources */,
-				AB2301B51964823900090844 /* TriangularDistribution.h in Sources */,
 				AB2301B61964823900090844 /* TriangularDistribution.mm in Sources */,
-				AB2301B71964823900090844 /* UniformDistribution.h in Sources */,
 				AB2301B81964823900090844 /* UniformDistribution.mm in Sources */,
 				AB2301B91964823900090844 /* Utils.mm in Sources */,
-				AB2301BA1964823900090844 /* WeibullDistribution.h in Sources */,
 				AB2301BB1964823900090844 /* WeibullDistribution.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* App.mm in Sources */,
 				4A8CCC85B9C3AB1B4E1FEA27 /* ofxXmlSettings.cpp in Sources */,

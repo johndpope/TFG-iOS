@@ -22,8 +22,8 @@ GaussianDistribution::~GaussianDistribution(){
 float GaussianDistribution::getValue(){
 	
 	int N = 12;
-	float halfN = 6;
-	float scale = 1;
+	float halfN = N/2;
+	float scale = 1/sqrtf(N/12);
 	float sum = 0;
 	
 	for(int k = 1; k < N; k++){
@@ -34,7 +34,7 @@ float GaussianDistribution::getValue(){
 	}
 	
 	float value = sigma * scale * (sum - halfN) + mu;
-	cout<<"value: "<<value<<endl;
+	//cout<<"value: "<<value<<endl;
 	
 	if(value < 0)
 		return 0.0;

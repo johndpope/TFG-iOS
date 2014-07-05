@@ -59,6 +59,7 @@ private:
 	
 	void initSynth();
 	void initGUI();
+	void setValuesForGraph(Distribution * d);
 	
 	std::vector<Figure *> composition;
 	
@@ -87,6 +88,15 @@ private:
 	ofxUICanvas * triangularDistGUI;
 	ofxUICanvas * exponentialDistGUI;
 	ofxUICanvas * gaussDistGUI;
+	ofxUICanvas * cauchyDistGUI;
+	ofxUICanvas * betaDistGUI;
+	ofxUICanvas * weibullDistGUI;
+	ofxUICanvas * poissonDistGUI;
+	
+	ofxUICanvas * styleGUI;
+	ofColor backgroundColor;
+	float red, green, blue;
+	ofTrueTypeFont musicNotesFont;
 	
 	static ofxUITextArea *currentFigureLabel;
 	ofxUIRadio *scaleRadioButtons;
