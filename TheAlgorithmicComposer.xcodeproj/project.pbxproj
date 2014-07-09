@@ -104,6 +104,9 @@
 		AB2301BB1964823900090844 /* WeibullDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB2301971964823900090844 /* WeibullDistribution.mm */; };
 		AB33184D196474AD00A0960B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB33184C196474AD00A0960B /* Accelerate.framework */; };
 		AB412C5D1964767100D77066 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB412C5C1964767100D77066 /* Images.xcassets */; };
+		AB7787F6196D358700E2D24B /* MIDIFileReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB7787F4196D358700E2D24B /* MIDIFileReader.cpp */; };
+		AB778801196D35F200E2D24B /* MarkovChainsComposer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB7787FD196D35F200E2D24B /* MarkovChainsComposer.mm */; };
+		AB778802196D35F200E2D24B /* Midi.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB7787FF196D35F200E2D24B /* Midi.mm */; };
 		AD80BE805A27A174778FB114 /* ofxUISpectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB3E23EF0CB8F67FDDE3080 /* ofxUISpectrum.cpp */; };
 		ADA09100E639A23D29CA7999 /* ControlDbToLinear.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8A09698D34B85D5698A83 /* ControlDbToLinear.mm */; };
 		AFD066264753CC7399EF4B6B /* Reverb.mm in Sources */ = {isa = PBXBuildFile; fileRef = 54788403BD3721CE4C82CDCC /* Reverb.mm */; };
@@ -354,6 +357,14 @@
 		AB2301971964823900090844 /* WeibullDistribution.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WeibullDistribution.mm; sourceTree = "<group>"; };
 		AB33184C196474AD00A0960B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AB412C5C1964767100D77066 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TheAlgorithmicComposer/Images.xcassets; sourceTree = "<group>"; };
+		AB7787F2196D358700E2D24B /* MIDIComposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDIComposition.h; path = ../of_v0.8.0_osx_release/addons/midiFileReader/MIDIComposition.h; sourceTree = "<group>"; };
+		AB7787F3196D358700E2D24B /* MIDIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDIEvent.h; path = ../of_v0.8.0_osx_release/addons/midiFileReader/MIDIEvent.h; sourceTree = "<group>"; };
+		AB7787F4196D358700E2D24B /* MIDIFileReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MIDIFileReader.cpp; path = ../of_v0.8.0_osx_release/addons/midiFileReader/MIDIFileReader.cpp; sourceTree = "<group>"; };
+		AB7787F5196D358700E2D24B /* MIDIFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDIFileReader.h; path = ../of_v0.8.0_osx_release/addons/midiFileReader/MIDIFileReader.h; sourceTree = "<group>"; };
+		AB7787FD196D35F200E2D24B /* MarkovChainsComposer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MarkovChainsComposer.mm; sourceTree = "<group>"; };
+		AB7787FE196D35F200E2D24B /* MarkovChainsComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkovChainsComposer.h; sourceTree = "<group>"; };
+		AB7787FF196D35F200E2D24B /* Midi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Midi.mm; sourceTree = "<group>"; };
+		AB778800196D35F200E2D24B /* Midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Midi.h; sourceTree = "<group>"; };
 		ACC09B090896E187FAF09114 /* ofxUIToggleMatrix.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUIToggleMatrix.cpp; path = ../of_v0.8.2_ios_release/addons/ofxUI/src/ofxUIToggleMatrix.cpp; sourceTree = SOURCE_ROOT; };
 		ADEB89083E153E7B810906FE /* ControlSnapToScale.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlSnapToScale.mm; path = ../of_v0.8.2_ios_release/addons/ofxTonic/src/Tonic/ControlSnapToScale.mm; sourceTree = SOURCE_ROOT; };
 		B11D1301CF33D89FDFCCEAC6 /* ofxUIToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIToggle.h; path = ../of_v0.8.2_ios_release/addons/ofxUI/src/ofxUIToggle.h; sourceTree = SOURCE_ROOT; };
@@ -680,6 +691,17 @@
 			name = ofxUI;
 			sourceTree = "<group>";
 		};
+		AB7787F1196D355E00E2D24B /* midiFileReader */ = {
+			isa = PBXGroup;
+			children = (
+				AB7787F2196D358700E2D24B /* MIDIComposition.h */,
+				AB7787F3196D358700E2D24B /* MIDIEvent.h */,
+				AB7787F4196D358700E2D24B /* MIDIFileReader.cpp */,
+				AB7787F5196D358700E2D24B /* MIDIFileReader.h */,
+			);
+			name = midiFileReader;
+			sourceTree = "<group>";
+		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +713,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				AB7787F1196D355E00E2D24B /* midiFileReader */,
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				76271A12053DA157D2DB4F78 /* ofxTonic */,
 				A492CE86424AB8905550BFD8 /* ofxUI */,
@@ -830,6 +853,10 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AB7787FD196D35F200E2D24B /* MarkovChainsComposer.mm */,
+				AB7787FE196D35F200E2D24B /* MarkovChainsComposer.h */,
+				AB7787FF196D35F200E2D24B /* Midi.mm */,
+				AB778800196D35F200E2D24B /* Midi.h */,
 				AB2301731964823800090844 /* BetaDistribution.h */,
 				AB2301741964823800090844 /* BetaDistribution.mm */,
 				AB2301751964823800090844 /* CauchyDistribution.h */,
@@ -1008,6 +1035,7 @@
 				7392E4FCD3633A5909E7D284 /* CombFilter.mm in Sources */,
 				A4F750E10DEB8EB4CC8C072B /* CompressorLimiter.mm in Sources */,
 				D6A1A676A8EBB256460AAD0D /* ControlArithmetic.mm in Sources */,
+				AB778802196D35F200E2D24B /* Midi.mm in Sources */,
 				AAF550E43F51985D9A3E201A /* ControlChangeNotifier.mm in Sources */,
 				25FD5957FCC3868E22FE18C9 /* ControlComparison.mm in Sources */,
 				1A9155541D23FD2149F512FA /* ControlConditioner.mm in Sources */,
@@ -1025,6 +1053,7 @@
 				0718DB3FA9354A6602435116 /* ControlRandom.mm in Sources */,
 				149B36CBBA1CF8CA2E733EEF /* ControlRecorder.mm in Sources */,
 				CFB405E2B1700019511CCC51 /* ControlSnapToScale.mm in Sources */,
+				AB7787F6196D358700E2D24B /* MIDIFileReader.cpp in Sources */,
 				368049D03C651489C88AB2F3 /* ControlStepper.mm in Sources */,
 				0A5372DC36C0531790F8959A /* ControlSwitcher.mm in Sources */,
 				A9B2BC0877E31FF816384F14 /* ControlTrigger.mm in Sources */,
@@ -1040,6 +1069,7 @@
 				7F89313065C0AB6BBCB3005D /* Mixer.mm in Sources */,
 				E21F2BC79CF50BAB307D6227 /* MonoToStereoPanner.mm in Sources */,
 				99323466E496381729819777 /* Noise.mm in Sources */,
+				AB778801196D35F200E2D24B /* MarkovChainsComposer.mm in Sources */,
 				3D9A1BE2BD90817AEB8FF81D /* RampedValue.mm in Sources */,
 				D1B117BA97A8753960BAD865 /* RectWave.mm in Sources */,
 				AFD066264753CC7399EF4B6B /* Reverb.mm in Sources */,

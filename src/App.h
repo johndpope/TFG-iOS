@@ -60,6 +60,9 @@ private:
 	void initSynth();
 	void initGUI();
 	void setValuesForGraph(Distribution * d);
+	void showIndependentStochasticGUI(bool show);
+	void showMarkovChainsGUI(bool show);
+	void setGUITheme(int i);
 	
 	std::vector<Figure *> composition;
 	
@@ -73,14 +76,26 @@ private:
 	WeibullDistribution * weibull;
 	PoissonDistribution * poisson;
 	
-	ofxUITabBar *guiTabBar;
-	vector<ofxUICanvas *> guis;
 	void guiEvent(ofxUIEventArgs &e);
 	
-	ofxUICanvas *gui1;
-	ofxUIScrollableCanvas *gui2;
-	static ofxUIScrollableCanvas *resultsGui;
-	ofxUICanvas *generalGUI;
+	vector<ofxUICanvas *> guis;
+	ofxUICanvas * methodGUI;
+	static ofxUIScrollableCanvas * resultsGui;
+	ofxUICanvas * generalGUI;
+	ofxUICanvas * styleGUI;
+	ofColor backgroundColor;
+	float red, green, blue;
+	ofTrueTypeFont musicNotesFont;
+	
+	static ofxUITextArea *currentFigureLabel;
+	ofxUIRadio *scaleRadioButtons;
+	ofxUIImageToggle * pauseToggle;
+	
+	
+	/* INDEPENDENT STOCHASTIC GUI */
+	
+	ofxUICanvas *isGUI1;
+	ofxUIScrollableCanvas *isGUI2;
 	ofxUICanvas *distributionGUI;
 	ofxUIMovingGraph * mg;
 	
@@ -93,13 +108,14 @@ private:
 	ofxUICanvas * weibullDistGUI;
 	ofxUICanvas * poissonDistGUI;
 	
-	ofxUICanvas * styleGUI;
-	ofColor backgroundColor;
-	float red, green, blue;
-	ofTrueTypeFont musicNotesFont;
 	
-	static ofxUITextArea *currentFigureLabel;
-	ofxUIRadio *scaleRadioButtons;
+	/* MARKOV CHAINS GUI */
+	
+	ofxUICanvas *mcGUI1;
+	ofxUILabel *fileLabel;
+
+	
+	bool showingStyleMenu;
 	
 };
 

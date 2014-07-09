@@ -1,7 +1,9 @@
 #include "App.h"
 #include "IndependentStochasticComposer.h"
+#include "MarkovChainsComposer.h"
 #include "Figure.h"
 #include "Scales.h"
+#include "Midi.h"
 
 #include <vector>
 #include <string>
@@ -58,6 +60,7 @@ void App::setup(){
 	
 	initGUI();
 	initSynth();
+
 }
 
 //--------------------------------------------------------------
@@ -99,7 +102,21 @@ void App::touchUp(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void App::touchDoubleTap(ofTouchEventArgs & touch){
+	if(!showingStyleMenu)
+    {
+        styleGUI->setPosition(touch.x, touch.y);
+        styleGUI->setVisible(true);
+		showingStyleMenu = true;
+        return;
+    }
+	
 
+    
+    if(!styleGUI->isHit(touch.x, touch.y) && showingStyleMenu)
+    {
+        styleGUI->setVisible(false);
+		showingStyleMenu = false;
+    }
 }
 
 //--------------------------------------------------------------
@@ -269,12 +286,12 @@ void App::guiEvent(ofxUIEventArgs &e){
 		weibullDistGUI->setVisible(false);
 		poissonDistGUI->setVisible(false);
 	}
-	else if (name == "A"){
+	else if (name == "a"){
 		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
 		beta->setA(slider->getValue());
 		setValuesForGraph(beta);
 	}
-	else if (name == "B"){
+	else if (name == "b"){
 		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
 		beta->setB(slider->getValue());
 		setValuesForGraph(beta);
@@ -323,12 +340,28 @@ void App::guiEvent(ofxUIEventArgs &e){
 	
 	else if(name == "COMPOSE"){
 		composition.clear();
-		composition = c->compose();
+		composition = composer->compose();
 		resultsGui->removeWidgets();
 	}
-	else if(name == "PLAY" && composition.size() > 0 && !player->isPlaying()){
-		player->play(composition);
+	else if(name == "PLAY" && composition.size() > 0 && !player->isPlaying()  && e.getButton()->getValue() == true){
+		
+		if(!player->isPaused())
+			player->play(composition);
+		else{
+			player->unpause();
+			pauseToggle->setValue(false);
+		}
 	}
+	else if (name == "PAUSE"){
+		if(e.getToggle()->getValue() == true)
+			player->pause();
+		else
+			player->unpause();
+	}
+	else if (name == "STOP" && e.getButton()->getValue() == true){
+		player->stop();
+	}
+
 	
 	else if(name == "TEMPO"){
 		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
@@ -338,20 +371,7 @@ void App::guiEvent(ofxUIEventArgs &e){
 	else if(name == "THEME"){
 		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
 		
-		gui1->setTheme((int)slider->getValue());
-		gui2->setTheme((int)slider->getValue());
-		generalGUI->setTheme((int)slider->getValue());
-		resultsGui->setTheme((int)slider->getValue());
-		distributionGUI->setTheme((int)slider->getValue());
-		triangularDistGUI->setTheme((int)slider->getValue());
-		linearDistGUI->setTheme((int)slider->getValue());
-		exponentialDistGUI->setTheme((int)slider->getValue());
-		gaussDistGUI->setTheme((int)slider->getValue());
-		cauchyDistGUI->setTheme((int)slider->getValue());
-		betaDistGUI->setTheme((int)slider->getValue());
-		weibullDistGUI->setTheme((int)slider->getValue());
-		poissonDistGUI->setTheme((int)slider->getValue());
-		styleGUI->setTheme((int)slider->getValue());
+		setGUITheme((int)slider->getValue());
 		
 	}
 	
@@ -362,15 +382,7 @@ void App::guiEvent(ofxUIEventArgs &e){
 	
 	else if(name == "Stems"){
 		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
-		c->setStems((int)slider->getValue());
-	}
-	else if (name == "Meter"){
-		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
-		c->setMeter((int)slider->getValue());
-	}
-	else if (name == "Pattern"){
-		ofxUISlider *slider = (ofxUISlider *) e.getSlider();
-		c->setPattern((int)slider->getValue());
+		composer->setStems((int)slider->getValue());
 	}
 	else if(name == "Notes"){
 		ofxUIToggle * toggle = e.getToggle();
@@ -382,6 +394,66 @@ void App::guiEvent(ofxUIEventArgs &e){
 		if(toggle->getValue())
 			c->setWantSilences(true);
 	}
+	else if (name == "Independent Stochastic"){
+		showIndependentStochasticGUI(true);
+		showMarkovChainsGUI(false);
+		composer = new IndependentStochasticComposer(uniform);
+	}
+	else if (name == "Markov Chains"){
+		showMarkovChainsGUI(true);
+		showIndependentStochasticGUI(false);
+		composer = new MarkovChainsComposer();
+		
+		MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+		mc->addMidiToChain("../../../data/mozart_eine_kleine.mid");
+		fileLabel->setLabel("mozart_eine_kleine.mid");
+	}
+	else if(name == "Select .mid file" && e.getButton()->getValue() == true){
+		ofFileDialogResult openFileResult= ofSystemLoadDialog("Select a .mid file");
+		
+		//Check if the user opened a file
+		if (openFileResult.bSuccess){
+			
+			
+			std::size_t found = openFileResult.getName().find(".mid");
+			if (found!=std::string::npos){
+				ofLogVerbose("User selected a file");
+				MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+				mc->addMidiToChain(openFileResult.getPath());
+				fileLabel->setLabel(openFileResult.getName());
+			}
+			
+			
+		}else {
+			ofLogVerbose("User hit cancel");
+		}
+	}
+	else if (name == "four_seasons_spring.mid" && e.getButton()->getValue() == true){
+		composition = Midi::readMidiFile("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/four_seasons_spring.mid");
+		MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+		mc->addMidiToChain("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/four_seasons_spring.mid");
+		fileLabel->setLabel("four_seasons_spring.mid");
+	}
+	else if (name == "fur_elise.mid" && e.getButton()->getValue() == true){
+		composition = Midi::readMidiFile("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/fur_elise.mid");
+		MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+		mc->addMidiToChain("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/fur_elise.mid");
+		fileLabel->setLabel("fur_elise.mid");
+	}
+	else if (name == "moonlight_sonata.mid" && e.getButton()->getValue() == true){
+		composition = Midi::readMidiFile("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/moonlight_sonata.mid");
+		MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+		mc->addMidiToChain("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/moonlight_sonata.mid");
+		fileLabel->setLabel("moonlight_sonata.mid");
+	}
+	else if (name == "the_entertainer.mid" && e.getButton()->getValue() == true){
+		composition = Midi::readMidiFile("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/the_entertainer.mid");
+		MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+		mc->addMidiToChain("/var/mobile/Applications/44643C7B-697F-42E5-885C-098AF04B92B4/TheAlgorithmicComposer.app/MIDI/the_entertainer.mid");
+		fileLabel->setLabel("the_entertainer.mid");
+	}
+	
+	
 	else if(kind == OFX_UI_WIDGET_TOGGLE)
     {
         ofxUIToggle *toggle = (ofxUIToggle *) e.widget;
@@ -399,11 +471,40 @@ void App::guiEvent(ofxUIEventArgs &e){
 		}
 		else if (toggle->getParent()->getName() == "Meter"){
 			int meter = atoi(name.c_str());
-			c->setMeter(meter);
+			composer->setMeter(meter);
 		}
 		else if(toggle->getParent()->getName() == "Pattern"){
 			int meter = atoi(name.c_str());
-			c->setPattern(meter);
+			composer->setPattern(meter);
+		}
+		else if(toggle->getParent()->getName() == "Starting Note"){
+			
+			MarkovChainsComposer * mc = dynamic_cast<MarkovChainsComposer *>(composer);
+			
+			if (toggle->getName() == "C")
+				mc->setStartingNote(0);
+			else if (toggle->getName() == "C#")
+				mc->setStartingNote(1);
+			else if (toggle->getName() == "D")
+				mc->setStartingNote(2);
+			else if (toggle->getName() == "D#")
+				mc->setStartingNote(3);
+			else if (toggle->getName() == "E")
+				mc->setStartingNote(4);
+			else if (toggle->getName() == "F")
+				mc->setStartingNote(5);
+			else if (toggle->getName() == "F#")
+				mc->setStartingNote(6);
+			else if (toggle->getName() == "G")
+				mc->setStartingNote(7);
+			else if (toggle->getName() == "G#")
+				mc->setStartingNote(8);
+			else if (toggle->getName() == "A")
+				mc->setStartingNote(9);
+			else if (toggle->getName() == "A#")
+				mc->setStartingNote(10);
+			else if (toggle->getName() == "B")
+				mc->setStartingNote(11);
 		}
 		
     }
@@ -417,13 +518,17 @@ void App::setMidiNote(int note){
 
 void App::setIsSilence(bool t){
 	if(t == false)
-		synth.setParameter("volume", 1);
+		synth.setParameter("trigger", 1);
 	else
-		synth.setParameter("volume", 0);
+		synth.setParameter("trigger", 0);
 }
 
 void App::setVolume(float volume){
-	//synth.setParameter("volume", volume);
+	
+	volume /= 100.0;
+	cout<<"volume "<<volume<<endl;
+	synth.setParameter("volume", volume);
+	
 }
 
 void App::setCurrentFigure(Figure *f){
@@ -444,7 +549,9 @@ void App::initSynth(){
 	ControlGenerator midiNote = synth.addParameter("midiNumber");
 	
 	ControlGenerator volume = synth.addParameter("volume");
-	synth.setParameter("volume", 1);
+	ControlGenerator trigger = synth.addParameter("trigger");
+	synth.setParameter("trigger", 1);
+	synth.setParameter("volume", 1.0);
 	
 	ControlGenerator noteFreq =  ControlMidiToFreq().input(midiNote);
 	
@@ -465,11 +572,10 @@ void App::initSynth(){
 	SineWave secondPartial = SineWave().freq(noteFreq * 3);
 	
 	// set the synth's final output generator
-	synth.setOutputGen( (tone + firstPartial + secondPartial) * ADSR(0.3f, 0.0f, 0.1f, 0.6f).trigger(volume).legato(1));
+	synth.setOutputGen( (tone + firstPartial + secondPartial) * volume * ADSR(0.3f, 0.0f, 0.1f, 0.6f).trigger(trigger).legato(1));
 }
 
 void App::initGUI(){
-	
 	
     red = 236;
 	green = 250;
@@ -486,19 +592,46 @@ void App::initGUI(){
 	
 	ofSetColor(0,0,0);
 	
+	
+	methodGUI = new ofxUICanvas();
+	methodGUI->setFont("GUI/Lekton-Regular.ttf");
+	methodGUI->addLabel("METHOD", OFX_UI_FONT_LARGE);
+	methodGUI->addSpacer();
+	methodGUI->setPosition(0, 0);
+	methodGUI->setGlobalButtonDimension(24);
+	
+	vector<string> methods;
+	methods.push_back("Independent Stochastic");
+	methods.push_back("Markov Chains");
+	methods.push_back("Random Walk");
+	
+	ofxUIRadio * m = methodGUI->addRadio("Method", methods, OFX_UI_ORIENTATION_HORIZONTAL);
+	m->getToggles()[0]->setValue(true);
+	methodGUI->addSpacer();
+	methodGUI->autoSizeToFitWidgets();
+	methodGUI->setWidth(421);
+	ofAddListener(methodGUI->newGUIEvent,this,&App::guiEvent);
+	guis.push_back(methodGUI);
+	
+	//////////
+	
 	styleGUI = new ofxUICanvas();
+	styleGUI->setGlobalSliderHeight(24);
 	styleGUI->setFont("GUI/Lekton-Regular.ttf");
 	styleGUI->addLabel("CONTEXTUAL MENU");
     styleGUI->addSpacer();
     styleGUI->addFPSSlider("FPS");
     styleGUI->addSpacer();
-	styleGUI->addSlider("THEME", 0.0, 42.0, 1.0);
+	styleGUI->addSlider("THEME", 0.0, 42.0, 3.0);
 	styleGUI->addSpacer();
     styleGUI->addSlider("RED", 0.0, 255.0, &red);
     styleGUI->addSlider("GREEN", 0.0, 255.0, &green);
     styleGUI->addSlider("BLUE", 0.0, 255.0, &blue);
 	styleGUI->setVisible(false);
+	styleGUI->autoSizeToFitWidgets();
 	ofAddListener(styleGUI->newGUIEvent,this,&App::guiEvent);
+	guis.push_back(styleGUI);
+	
 	
 	//
 	
@@ -507,15 +640,22 @@ void App::initGUI(){
 	
 	generalGUI->setPosition(724, 0);
 	generalGUI->setWidth(300);
-	generalGUI->setHeight(120);
+	generalGUI->setHeight(180);
 	
-	generalGUI->addLabelButton("COMPOSE", false);
-	generalGUI->addLabelButton("PLAY", false);
+	generalGUI->setGlobalSliderHeight(24);
+	generalGUI->setGlobalButtonDimension(50);
+	generalGUI->addLabelButton("COMPOSE", false, 120, 0, 724, 10);
+	generalGUI->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+	generalGUI->addImageButton("PLAY", "GUI/play.png", false);
+	pauseToggle = generalGUI->addImageToggle("PAUSE", "GUI/pause.png", false);
+	generalGUI->addImageButton("STOP", "GUI/stop.png", false);
+	generalGUI->setWidgetPosition(OFX_UI_WIDGET_POSITION_DOWN);
 	generalGUI->addSlider("TEMPO", 1, 200, 60);
 	generalGUI->addSpacer(300, 10);
 	generalGUI->addLabel("RESULTS", OFX_UI_FONT_LARGE);
 	generalGUI->addSpacer();
 	ofAddListener(generalGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(generalGUI);
 	
 	
 	/////////////
@@ -527,28 +667,29 @@ void App::initGUI(){
 	}
 	distributionGUI = new ofxUICanvas();
 	distributionGUI->setFont("GUI/Lekton-Regular.ttf");
-	distributionGUI->setPosition(210, 0);
+	distributionGUI->setPosition(210, 70);
 	distributionGUI->addLabel("DISTRIBUTION", OFX_UI_FONT_LARGE);
 	distributionGUI->addLabel("Based on 1000 samples", OFX_UI_FONT_SMALL);
 	mg = distributionGUI->addMovingGraph("distribution", distribution, 10, 0.0, 25.0, 50);
 	distributionGUI->addSpacer();
 	distributionGUI->autoSizeToFitWidgets();
-	//distributionGUI->setVisible(false);
+	guis.push_back(distributionGUI);
 	
 	
 	///////////
 	
-	gui1 = new ofxUICanvas();
-	gui1->setFont("GUI/Lekton-Regular.ttf");
-	gui1->setHeight(360);
-	gui1->setPosition(0, 0);
+	isGUI1 = new ofxUICanvas();
+	isGUI1->setFont("GUI/Lekton-Regular.ttf");
+	isGUI1->setHeight(360);
+	isGUI1->setPosition(0, 70);
+	isGUI1->setGlobalButtonDimension(24);
+	isGUI1->setGlobalSliderHeight(24);
+	
+	isGUI1->addLabel("PURE STOCHASTIC", OFX_UI_FONT_LARGE);
+	isGUI1->addSpacer();
 	
 	
-	gui1->addLabel("STOCHASTIC COMPOSER", OFX_UI_FONT_LARGE);
-	gui1->addSpacer();
-	
-	
-	gui1->addLabel("DISTRIBUTION");
+	isGUI1->addLabel("DISTRIBUTION");
 	
 	vector<string> distributions;
 	distributions.push_back("Uniform");
@@ -561,65 +702,67 @@ void App::initGUI(){
 	distributions.push_back("Weibull");
 	distributions.push_back("Poisson");
 	
-	ofxUIRadio * dis = gui1->addRadio("Distribution", distributions);
+	ofxUIRadio * dis = isGUI1->addRadio("Distribution", distributions);
 	dis->getToggles()[0]->setValue(true);
 	setValuesForGraph(uniform);
 	
-	gui1->addSpacer();
+	isGUI1->addSpacer();
 	
-	gui1->addLabel("MUSICAL PARAMETERS");
-	gui1->addRangeSlider("Octaves", 0, 10, 2, 4);
-	gui1->addSlider("Stems", 1, 20, 1);
-	gui1->addSpacer(210, 3);
+	isGUI1->addLabel("MUSICAL PARAMETERS");
+	isGUI1->addRangeSlider("Octaves", 0, 10, 2, 4);
+	isGUI1->addSlider("Stems", 1, 20, 1);
+	isGUI1->addSpacer(210, 3);
 	
 	vector<string> meter;
 	meter.push_back("2"); meter.push_back("3"); meter.push_back("4");
 	
-	gui1->addLabel("Meter", OFX_UI_FONT_SMALL);
-	ofxUIRadio * mR = gui1->addRadio("Meter", meter, OFX_UI_ORIENTATION_HORIZONTAL);
+	isGUI1->addLabel("Meter", OFX_UI_FONT_SMALL);
+	ofxUIRadio * mR = isGUI1->addRadio("Meter", meter, OFX_UI_ORIENTATION_HORIZONTAL);
 	mR->getToggles()[0]->setValue(true);
 	
 	vector<string> pattern;
 	pattern.push_back("1"); pattern.push_back("2"); pattern.push_back("4"); pattern.push_back("8"); pattern.push_back("16");
 	
-	gui1->addLabel("Pattern", OFX_UI_FONT_SMALL);
-	ofxUIRadio * pR = gui1->addRadio("Pattern", pattern, OFX_UI_ORIENTATION_HORIZONTAL);
+	isGUI1->addLabel("Pattern", OFX_UI_FONT_SMALL);
+	ofxUIRadio * pR = isGUI1->addRadio("Pattern", pattern, OFX_UI_ORIENTATION_HORIZONTAL);
 	pR->getToggles()[2]->setValue(true);
 	
-	gui1->addSpacer(210, 3);
+	isGUI1->addSpacer(210, 3);
 	vector<string> figures;
 	figures.push_back("Notes");
 	figures.push_back("Notes + Silences");
-	ofxUIRadio * figuresRadio = gui1->addRadio("Figures", figures);
+	ofxUIRadio * figuresRadio = isGUI1->addRadio("Figures", figures);
 	figuresRadio->getToggles()[1]->setValue(true);
 	
-	gui1->addSpacer(210, 3);
-	gui1->addLabel("Scale", OFX_UI_FONT_SMALL);
-	gui1->autoSizeToFitWidgets();
-	gui1->setWidth(210);
+	isGUI1->addSpacer(210, 3);
+	isGUI1->addLabel("Scale", OFX_UI_FONT_SMALL);
+	isGUI1->autoSizeToFitWidgets();
+	isGUI1->setWidth(210);
 	
-	ofAddListener(gui1->newGUIEvent, this, &App::guiEvent);
+	ofAddListener(isGUI1->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(isGUI1);
 	
 	
 	//////////////////
 	
 	
-	gui2 = new ofxUIScrollableCanvas(0,0,ofGetWidth(),ofGetHeight());
-	
-	gui2->setScrollAreaToScreen();
-    gui2->setScrollableDirections(false, true);
-	gui2->setFont("GUI/Lekton-Regular.ttf");
-	gui2->setPosition(0, 471);
+	isGUI2 = new ofxUIScrollableCanvas(0,0,ofGetWidth(),ofGetHeight());
+	isGUI2->setScrollAreaToScreen();
+    isGUI2->setScrollableDirections(false, true);
+	isGUI2->setFont("GUI/Lekton-Regular.ttf");
+	isGUI2->setPosition(0, 666);
 	
 	
 	vector<string> scales(NamesOfScales, NamesOfScales + sizeof(NamesOfScales) / sizeof(string));
-	scaleRadioButtons = gui2->addRadio("Scale", scales);
+	isGUI2->setGlobalButtonDimension(24);
+	scaleRadioButtons = isGUI2->addRadio("Scale", scales);
 	scaleRadioButtons->getToggles()[0]->setValue(true);
 	
-	gui2->autoSizeToFitWidgets();
-	gui2->setWidth(210);
-	gui2->getRect()->setWidth(ofGetWidth());
-	ofAddListener(gui2->newGUIEvent, this, &App::guiEvent);
+	isGUI2->autoSizeToFitWidgets();
+	isGUI2->setWidth(210);
+	isGUI2->getRect()->setWidth(ofGetWidth());
+	ofAddListener(isGUI2->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(isGUI2);
 	
 	
 	///////////////
@@ -632,19 +775,21 @@ void App::initGUI(){
 	resultsGui->setScrollAreaToScreen();
     resultsGui->setScrollableDirections(false, true);
 	
-	resultsGui->setPosition(724, 120);
+	resultsGui->setPosition(724, 180);
 	resultsGui->setHeight(648);
 	resultsGui->setWidth(300);
 	ofAddListener(resultsGui->newGUIEvent, this, &App::guiEvent);
 	//currentFigureLabel = resultsGui->addTextArea("textarea", textString, OFX_UI_FONT_MEDIUM);
+	guis.push_back(resultsGui);
 	
 	
 	/////////////
 	
 	
 	linearDistGUI = new ofxUICanvas();
+	linearDistGUI->setGlobalButtonDimension(24);
 	linearDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	linearDistGUI->setPosition(210, 113);
+	linearDistGUI->setPosition(210, 203);
 	linearDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	vector<string> op1;
 	op1.push_back("Up");
@@ -654,34 +799,40 @@ void App::initGUI(){
 	linearDistGUI->setWidth(211);
 	linearDistGUI->setVisible(false);
 	ofAddListener(linearDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(linearDistGUI);
 	
 	
 	triangularDistGUI = new ofxUICanvas();
+	triangularDistGUI->setGlobalSliderHeight(24);
 	triangularDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	triangularDistGUI->setPosition(210, 113);
+	triangularDistGUI->setPosition(210, 203);
 	triangularDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	triangularDistGUI->addSlider("Triangle Base", 0.01, 1.0, 1.0);
 	triangularDistGUI->autoSizeToFitWidgets();
 	triangularDistGUI->setWidth(211);
 	triangularDistGUI->setVisible(false);
 	ofAddListener(triangularDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(triangularDistGUI);
 	
 	
 	
 	exponentialDistGUI = new ofxUICanvas();
+	exponentialDistGUI->setGlobalSliderHeight(24);
 	exponentialDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	exponentialDistGUI->setPosition(210, 113);
+	exponentialDistGUI->setPosition(210, 203);
 	exponentialDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	exponentialDistGUI->addSlider("Lambda", 0.5, 10.0, 1.0);
 	exponentialDistGUI->autoSizeToFitWidgets();
 	exponentialDistGUI->setWidth(211);
 	exponentialDistGUI->setVisible(false);
 	ofAddListener(exponentialDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(exponentialDistGUI);
 	
 	
 	gaussDistGUI = new ofxUICanvas();
+	gaussDistGUI->setGlobalSliderHeight(24);
 	gaussDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	gaussDistGUI->setPosition(210, 113);
+	gaussDistGUI->setPosition(210, 203);
 	gaussDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	gaussDistGUI->addSlider("Sigma", 0.1, 10.0, 0.15);
 	gaussDistGUI->addSlider("Mu", -1.5, 1.5, 0.5);
@@ -689,34 +840,39 @@ void App::initGUI(){
 	gaussDistGUI->setWidth(211);
 	gaussDistGUI->setVisible(false);
 	ofAddListener(gaussDistGUI->newGUIEvent, this, &App::guiEvent);
-	
+	guis.push_back(gaussDistGUI);
 	
 	cauchyDistGUI = new ofxUICanvas();
+	cauchyDistGUI->setGlobalSliderHeight(24);
 	cauchyDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	cauchyDistGUI->setPosition(210, 113);
+	cauchyDistGUI->setPosition(210, 203);
 	cauchyDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	cauchyDistGUI->addSlider("Alpha", 0.1, 2.5, 1.0);
 	cauchyDistGUI->autoSizeToFitWidgets();
 	cauchyDistGUI->setWidth(211);
 	cauchyDistGUI->setVisible(false);
 	ofAddListener(cauchyDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(cauchyDistGUI);
 	
 	
 	betaDistGUI = new ofxUICanvas();
+	betaDistGUI->setGlobalSliderHeight(24);
 	betaDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	betaDistGUI->setPosition(210, 113);
+	betaDistGUI->setPosition(210, 203);
 	betaDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
-	betaDistGUI->addSlider("A", 0.1, 4.0, 0.5);
-	betaDistGUI->addSlider("B", 0.1, 4.0, 0.5);
+	betaDistGUI->addSlider("a", 0.1, 4.0, 0.5);
+	betaDistGUI->addSlider("b", 0.1, 4.0, 0.5);
 	betaDistGUI->autoSizeToFitWidgets();
 	betaDistGUI->setWidth(211);
 	betaDistGUI->setVisible(false);
 	ofAddListener(betaDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(betaDistGUI);
 	
 	
 	weibullDistGUI = new ofxUICanvas();
+	weibullDistGUI->setGlobalSliderHeight(24);
 	weibullDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	weibullDistGUI->setPosition(210, 113);
+	weibullDistGUI->setPosition(210, 203);
 	weibullDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	weibullDistGUI->addSlider("T", 0.1, 10.0, 1.0);
 	weibullDistGUI->addSlider("S", 0.1, 3.0, 1.0);
@@ -724,18 +880,72 @@ void App::initGUI(){
 	weibullDistGUI->setWidth(211);
 	weibullDistGUI->setVisible(false);
 	ofAddListener(weibullDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(weibullDistGUI);
+	
 	
 	
 	poissonDistGUI = new ofxUICanvas();
+	poissonDistGUI->setGlobalSliderHeight(24);
 	poissonDistGUI->setFont("GUI/Lekton-Regular.ttf");
-	poissonDistGUI->setPosition(210, 113);
+	poissonDistGUI->setPosition(210, 203);
 	poissonDistGUI->addLabel("OPTIONS", OFX_UI_FONT_LARGE);
 	poissonDistGUI->addSlider("lambda", 0.1, 100.0, 100.0);
 	poissonDistGUI->autoSizeToFitWidgets();
 	poissonDistGUI->setWidth(211);
 	poissonDistGUI->setVisible(false);
 	ofAddListener(poissonDistGUI->newGUIEvent, this, &App::guiEvent);
+	guis.push_back(poissonDistGUI);
+	
+	
+	/* MARKOV CHAINS */
+	
+	mcGUI1 = new ofxUICanvas();
+	mcGUI1->setGlobalButtonDimension(24);
+	mcGUI1->setGlobalSliderHeight(24);
+	mcGUI1->setGlobalCanvasWidth(210);
+	mcGUI1->setFont("GUI/Lekton-Regular.ttf");
+	mcGUI1->setPosition(0, 70);
+	mcGUI1->addLabel("MARKOV CHAINS", OFX_UI_FONT_LARGE);
+	mcGUI1->addSpacer();
+	
+	
+	//mcGUI1->addLabelButton("Select .mid file", false);
+	mcGUI1->addLabelButton("four_seasons_spring.mid", false);
+	mcGUI1->addLabelButton("fur_elise.mid", false);
+	mcGUI1->addLabelButton("moonlight_sonata.mid", false);
+	mcGUI1->addLabelButton("the_entertainer.mid", false);
+	
+	fileLabel = mcGUI1->addLabel("No file", OFX_UI_FONT_SMALL);
+	mcGUI1->addSpacer();
+	mcGUI1->addLabel("MUSICAL PARAMETERS", OFX_UI_FONT_MEDIUM);
+	mcGUI1->addSlider("Stems", 1, 20, 1);
+	
+	mcGUI1->addLabel("Meter", OFX_UI_FONT_SMALL);
+	mR = mcGUI1->addRadio("Meter", meter, OFX_UI_ORIENTATION_HORIZONTAL);
+	mR->getToggles()[0]->setValue(true);
+	
+	mcGUI1->addLabel("Pattern", OFX_UI_FONT_SMALL);
+	pR = mcGUI1->addRadio("Pattern", pattern, OFX_UI_ORIENTATION_HORIZONTAL);
+	pR->getToggles()[2]->setValue(true);
+	
+	mcGUI1->addLabel("Starting Note", OFX_UI_FONT_SMALL);
+	vector<string> start;
+	start.push_back("C"); start.push_back("C#"); start.push_back("D"); start.push_back("D#"); start.push_back("E"); start.push_back("F"); start.push_back("F#");
+	start.push_back("G"); start.push_back("G#"); start.push_back("A"); start.push_back("A#"); start.push_back("B");
+	ofxUIRadio * sR = mcGUI1->addRadio("Starting Note", start, OFX_UI_ORIENTATION_HORIZONTAL);
+	sR->getToggles()[0]->setValue(true);
+	
+	mcGUI1->autoSizeToFitWidgets();
+	guis.push_back(mcGUI1);
+	ofAddListener(mcGUI1->newGUIEvent, this, &App::guiEvent);
+	
+	showMarkovChainsGUI(false);
+	
+	
+	setGUITheme(3);
 
+	
+	
 	
 }
 
@@ -755,4 +965,33 @@ void App::setValuesForGraph(Distribution * d){
 	mg->setMax(max + 5);
 	
 }
+
+void App::showIndependentStochasticGUI(bool show){
+	
+	isGUI1->setVisible(show);
+	isGUI2->setVisible(show);
+	distributionGUI->setVisible(show);
+	if(show == false){
+		linearDistGUI->setVisible(show);
+		triangularDistGUI->setVisible(show);
+		exponentialDistGUI->setVisible(show);
+		gaussDistGUI->setVisible(show);
+		cauchyDistGUI->setVisible(show);
+		betaDistGUI->setVisible(show);
+		weibullDistGUI->setVisible(show);
+		poissonDistGUI->setVisible(show);
+	}
+}
+
+void App::showMarkovChainsGUI(bool show){
+	mcGUI1->setVisible(show);
+}
+
+void App::setGUITheme(int i){
+	
+	for (int j = 0; j < guis.size(); j++) {
+		guis[j]->setTheme(i);
+	}
+}
+
 

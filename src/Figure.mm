@@ -7,6 +7,7 @@
 //
 
 #include "Figure.h"
+#include <cmath>
 
 Figure::Figure(Type t){
 	
@@ -50,6 +51,9 @@ Figure::Figure(Type t){
 		case SixtyFourth:
 			duration = 0.015625;
 			break;
+		case NotAFigure:
+			duration = 0.0;
+			break;
 		default:
 			break;
 	}
@@ -68,7 +72,7 @@ Figure::Figure(Type t){
 	typeNames.push_back("DThirtySecond");
 	typeNames.push_back("ThirtySecond");
 	typeNames.push_back("SixtyFourth");
-	
+	typeNames.push_back("Not a figure");
 }
 
 float Figure::typeToDuration(Type t){
@@ -139,4 +143,86 @@ Type Figure::durationToType(float d){
 		t = NotAFigure;
 	
 	return t;
+}
+
+Type Figure::MIDIDurationToType(int ppq, int duration){
+	
+	float division = (float)duration/(float)ppq;
+	Type t;
+	
+	if (division == 6.0) {
+		t = DWhole;
+	}
+	else if (division == 4.0){
+		t = Whole;
+	}
+	else if (division == 3.0){
+		t = DHalf;
+	}
+	else if (division == 2.0){
+		t = Half;
+	}
+	else if (division == 1.5) {
+		t = DQuarter;
+	}
+	else if (division == 1.0) {
+		t = Quarter;
+	}
+	else if (division == 0.75){
+		t = DEighth;
+	}
+	else if (division == 0.5){
+		t = Eighth;
+	}
+	else if (division == 0.25 + 0.25/2){
+		t = DSixteenth;
+	}
+	else if (division == 0.25){
+		t = Sixteenth;
+	}
+	else if (division == 0.125 + 0.125/2){
+		t = DThirtySecond;
+	}
+	else if (division == 0.125){
+		t = ThirtySecond;
+	}
+	else if (division == 0.125/2){
+		t = SixtyFourth;
+	}
+	else{
+		
+		if (abs(division - (6.0)) < 0.5)
+			t = DWhole;
+		else if (abs(division - 4.0) < 0.5)
+			t = Whole;
+		else if (abs(division - (3.0)) < 0.3)
+			t = DHalf;
+		else if (abs(division - 2.0) < 0.25)
+			t = Half;
+		else if (abs(division - (1.5)) < 0.2)
+			t = DQuarter;
+		else if (abs(division - 1.0) < 0.15)
+			t = Quarter;
+		else if(abs(division - (0.75)) < 0.1)
+			t = DEighth;
+		else if (abs(division - 0.5) < 0.1)
+			t = Eighth;
+		else if (abs(division - (0.375)) < 0.02)
+			t = DSixteenth;
+		else if (abs(division - 0.25) < 0.05)
+			t = Sixteenth;
+		else if (abs(division - (0.1875)) < 0.012)
+			t = DThirtySecond;
+		else if (abs(division - 0.125) < 0.01)
+			t = ThirtySecond;
+		else if (abs(division - 0.0625) < 0.005)
+			t = SixtyFourth;
+		else
+			t = NotAFigure;
+		
+	}
+	
+	return t;
+	
+	
 }
